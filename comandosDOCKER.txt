@@ -1,0 +1,80 @@
+DOCKER
+
+•	docker exec -it [CONTAINER_ID] [COMANDO]: Executa um comando dentro de um container em execução de forma interativa, abrindo um terminal dentro do container.
+
+•	docker run [IMAGEM] [COMANDO]: Cria um novo container a partir de uma imagem e executa um comando dentro dele.
+
+•	docker run -it ubuntu bash: Maneira mais rápida de criar um container a partir da imagem ubuntu e colocar diretamente dentro do terminal do container, pronto para usar o bash.
+
+•	docker ps: Lista os containers em execução.
+
+•	docker ps -a: Lista todos os containers, incluindo os que estão parados.
+
+•	docker stop [CONTAINER_ID]: Interrompe a execução de um container.
+
+•	docker start [CONTAINER_ID]: Reinicia a execução de um container.
+
+•	docker rm [CONTAINER_ID]: Exclui um container.
+
+•	docker rm -t=0 [CONTAINER_ID]: Exclui um container instantaneamente, sem tempo de espera para finalizar.
+
+•	docker pause [CONTAINER_ID]: Pausa a execução de um container.
+
+•	docker unpause [CONTAINER_ID]: Retoma a execução de um container que está pausado.
+
+•	docker stop -t=0 [CONTAINER_ID]: Ele para a execução do container imediatamente, sem esperar o tempo padrão de 10 segundos.
+
+•	docker top: Mostra os processos que estão em execução dentro de um container específico.
+
+•	docker inspect [CONTAINER_ID]: Exibe informações detalhadas sobre um container.
+
+•	docker port [CONTAINER_ID]: Esse comando mostra o mapeamento de portas do container.
+
+•	docker pull [NOME IMAGEM]: Baixa uma imagem do Docker Hub ou de outro repositório.
+
+•	docker images ou docker image ls: Lista as imagens que você tem no seu sistema.
+
+•	docker history [CONTAINER_ID]: Mostra o histórico de camadas de uma imagem, mostrando como ela foi construída.
+
+•	docker build -t danielartini/app-node:1 .: Cria uma imagem a partir do Dockerfile no diretório atual, com a tag danielartini/app-node:1.
+
+•	docker run -d -p 8081:3000 danielartini/app-node:1.0: Inicia um container da imagem danielartini/app-node:1.0, mapeando a porta 8081 do host para a porta 3000 do container, e executa em modo detached (em segundo plano).
+
+•	docker build -t danielartini/app-node:1.1 .: Cria uma nova versão da imagem danielartini/app-node, com a tag 1.1.
+
+•	docker run -d danielartini/app-node:1.1: Inicia um container da imagem danielartini/app-node:1.1 em modo detached, sem mapear explicitamente nenhuma porta.
+
+•	docker build -t danielartini/app-node:1.2 .: Cria uma nova versão da imagem danielartini/app-node, agora na versão 1.2.
+
+•	docker run -d danielartini/app-node:1.2: Inicia um container a partir da versão 1.2 da imagem danielartini/app-node, sem mapear portas explicitamente.
+docker login -u [NOME_DE_USUARIO]: Autentica sua conta do Docker Hub no terminal, permitindo o envio de imagens.
+
+•	docker push [IMAGEM]:[VERSÃO]: Envia a imagem especificada para o Docker Hub.
+
+•	docker tag [IMAGEM_ORIGINAL]:[VERSÃO_ORIGINAL] [NOVA_IMAGEM]:[NOVA_VERSÃO]: Cria uma nova tag para a imagem, alterando o repositório ou a versão.
+
+•	docker run -d [NOME_DE_USUARIO]/[IMAGEM]:[VERSÃO]: Executa um container em segundo plano a partir da imagem especificada.
+
+•	docker container rm $(docker container ls -aq): Remove todos os containers, inclusive os que estão parados.
+
+•	docker rmi $(docker image ls -aq): Remove todas as imagens disponíveis localmente.
+
+•	docker rmi $(docker image ls -aq) --force: Força a remoção de todas as imagens, mesmo aquelas que estão sendo referenciadas por múltiplos repositórios.
+
+•	docker ps -s: Exibe os containers em execução com uma coluna extra que mostra o tamanho do container.
+
+•	docker network ls: Lista todas as redes Docker disponíveis.
+
+•	docker network create [NOME_DA_REDE]: Cria uma nova rede Docker.
+
+•	docker volume ls: Lista todos os volumes Docker disponíveis.
+
+•	docker volume create [NOME_DO_VOLUME]: Cria um novo volume Docker.
+
+•	docker-compose up: Inicia e cria containers definidos em um arquivo `docker-compose.yml`.
+
+•	docker-compose down: Para e remove containers, redes e volumes criados pelo `docker-compose up`.
+
+•	docker cp [CONTAINER_ID/NOME]:[CAMINHO_NO_CONTAINER] [CAMINHO_LOCAL]: Copia arquivos ou diretórios de um container para o sistema de arquivos local.
+
+•	docker attach [CONTAINER_ID/NOME]: Anexa o terminal do seu ambiente ao terminal de um container em execução.
